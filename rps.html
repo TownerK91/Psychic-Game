@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="UTF-8">
+		<title>Rock Paper Scissors Pseudocode</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	</head>
+	<body>
+
+		<div class="container">
+
+			<div class="jumbotron">
+				<h1 class="text-center"><strong>Rock Paper Scissors Pseudocode</strong></h1>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+					  <div class="panel-body">
+						
+						  <h3>User picked <span id="user-text"><strong>...Nothing.</strong></span></h3>
+						  <h3>Computer chose <span id="computer-text"> </span></h3>
+						  <h3>3. We determine if the user wins or not.</h3> 
+
+						  <h3>4. We then add to their score.</h3>
+						  	<ul>
+						  		<li>
+						  			<h4>If user wins then we add one to their wins.</h4>
+						  		</li>
+								
+								<li>
+						  			<h4>Win:<h4 id="win-text"></h4></h4>
+						  		</li>
+						  		<li>
+						  			<h4>If user loses then we add one to their losses.</h4>
+
+								</li>
+								<li>
+						  			<h4>Lost:<h4 id="lose-text"></h4></h4>
+						  		</li>
+								<li>
+						  			<h4>If user ties then we add one to their ties.</h4>
+								</li>
+								<li>
+						  			<h4>Tie:<h4 id="tie-text"></h4></h4>
+						  		</li>
+						  	</ul>
+						  <h3>5. The user then presses r, p, or s to play again.</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+			<script type="text/javascript">
+		  // Let's start by grabbing a reference to the <span> below.
+		  var userText = document.getElementById("user-text");
+		  var computerText = document.getElementById("computer-text");
+		  var winText = document.getElementById("win-text");
+		  var lostText = document.getElementById("lose-text");
+		  var tieText = document.getElementById("tie-text");
+		  var computerChoices=["r","p","s"];
+		  var Tie=0;
+		  var Win=0;
+		  var Lost=0
+		 		
+
+		  // Next, we give JavaScript a function to execute when onkeyup event fires.
+		  document.onkeyup = function(event) {
+			userText.textContent = event.key;
+			var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+			computerText.textContent = computerGuess;
+			if(event.key === "r" || event.key ==="p" || event.key ==="s"){
+			if(event.key==="r" && computerGuess==="r"){
+				Tie++;
+			} else if(event.key==="r" && computerGuess==="p"){
+				Lost++;
+			} else if (event.key==="r" && computerGuess==="s"){
+				Win++;
+			} else if (event.key==="p" && computerGuess==="r"){
+				Win++;
+			} else if (event.key==="p" && computerGuess==="p"){
+				 Tie++;
+			} else if (event.key==="p" && computerGuess==="s"){
+				 Lost++;
+			} else if (event.key==="s" && computerGuess==="r"){
+				 Lost++;
+			} else if (event.key==="s" && computerGuess==="p"){
+				 Win++;
+			} else if (event.key==="s" && computerGuess==="s") {
+				 Tie++;
+			}
+		  
+			} else {
+				alert("Please enter r, p ,s!");
+			}
+			winText.textContent=Win;
+			lostText.textContent=Lost;
+			tieText.textContent=Tie;
+		  };
+
+		  
+		  
+		  
+		  </script>
+	</body>
+</html>
