@@ -102,3 +102,5 @@ function fail(letter) {
     guessesLeft--;
     guessedLetters.push(letter);
 }
+
+console.log(letterToGuess);
